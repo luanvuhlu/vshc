@@ -1,7 +1,9 @@
-package com.luanvv.http.client.vshc
+package com.luanvv.http.client.vshc.components
 
+import com.luanvv.http.client.vshc.models.Parameter
 import javafx.collections.FXCollections
 import javafx.scene.control.TableView
+import javafx.scene.control.cell.PropertyValueFactory
 import javafx.scene.control.cell.TextFieldTableCell
 import javafx.util.converter.DefaultStringConverter
 

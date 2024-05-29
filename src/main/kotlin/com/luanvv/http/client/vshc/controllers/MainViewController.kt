@@ -1,4 +1,4 @@
-package com.luanvv.http.client.vshc
+package com.luanvv.http.client.vshc.controllers
 
 import javafx.event.EventHandler
 import javafx.fxml.FXML
@@ -8,7 +8,6 @@ import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
-import javafx.scene.input.MouseEvent
 import javafx.scene.layout.HBox
 
 class MainViewController {
@@ -24,6 +23,7 @@ class MainViewController {
         newTabButton.setOnAction {
             createNewTab()
         }
+        createNewTab()
     }
 
     private fun createNewTab() {
