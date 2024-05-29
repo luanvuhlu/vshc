@@ -10,5 +10,7 @@ module com.luanvv.http.client.vshc {
     opens com.luanvv.http.client.vshc to javafx.fxml;
     opens com.luanvv.http.client.vshc.controllers to javafx.fxml;
     opens com.luanvv.http.client.vshc.components to javafx.fxml;
+    opens com.luanvv.http.client.vshc.models to javafx.base;
+    opens com.luanvv.http.client.vshc.models.postman to com.fasterxml.jackson.databind;
     exports com.luanvv.http.client.vshc;
 }

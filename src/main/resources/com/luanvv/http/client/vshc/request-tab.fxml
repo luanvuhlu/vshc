@@ -11,103 +11,108 @@
     <TextField fx:id="urlField" prefWidth="800.0" />
     <Button onAction="#onSendButtonClick" prefWidth="80.0" text="Send" />
   </HBox>
-   <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
-     <items>
-       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-         <TabPane prefHeight="300.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-           <Tab text="Params">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <ParameterTableView fx:id="paramsTable" layoutX="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                 <columns>
-                   <TableColumn prefWidth="75.0" text="Key" />
-                   <TableColumn prefWidth="75.0" text="Value" />
-                   <TableColumn prefWidth="75.0" text="Description" />
-                 </columns>
-               </ParameterTableView>
-             </AnchorPane>
-           </Tab>
-           <Tab text="Headers">
-             <AnchorPane minHeight="0.0" minWidth="0.0">
-               <ParameterTableView fx:id="headersTable" layoutX="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                 <columns>
-                   <TableColumn prefWidth="75.0" text="Key" />
-                   <TableColumn prefWidth="75.0" text="Value" />
-                   <TableColumn prefWidth="75.0" text="Description" />
-                 </columns>
-               </ParameterTableView>
-             </AnchorPane>
-           </Tab>
-           <Tab text="Authorization">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="261.0" prefWidth="100.0">
-                   <ChoiceBox fx:id="authorizationTypeBox" layoutY="8.0" prefWidth="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
-                 </AnchorPane>
-                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-               </SplitPane>
-             </AnchorPane>
-           </Tab>
-           <Tab text="Raw Body">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <TextArea prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-             </AnchorPane>
-           </Tab>
-           <Tab text="Form Data">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <ParameterTableView layoutX="7.0" prefHeight="200.0" prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                 <columns>
-                   <TableColumn prefWidth="75.0" text="Key" />
-                   <TableColumn prefWidth="75.0" text="Value" />
-                   <TableColumn prefWidth="75.0" text="Description" />
-                 </columns>
-               </ParameterTableView>
-             </AnchorPane>
-           </Tab>
-           <Tab text="x-www-form-urlencoded">
-             <AnchorPane minHeight="0.0" minWidth="0.0">
-               <ParameterTableView layoutX="7.0" prefHeight="200.0" prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                 <columns>
-                   <TableColumn prefWidth="75.0" text="Key" />
-                   <TableColumn prefWidth="75.0" text="Value" />
-                   <TableColumn prefWidth="75.0" text="Description" />
-                 </columns>
-               </ParameterTableView>
-             </AnchorPane>
-           </Tab>
-           <Tab text="Pre-request script">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <TextArea prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-             </AnchorPane>
-           </Tab>
-           <Tab text="Post-response script">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <TextArea prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-             </AnchorPane>
-           </Tab>
-         </TabPane>
-       </AnchorPane>
-       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-         <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
-           <Tab text="Body">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <TextArea fx:id="txtResponseBody" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
-                 AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="0.0"/>
-             </AnchorPane>
-           </Tab>
-           <Tab text="Headers">
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <ParameterTableView layoutX="7.0" prefHeight="200.0" prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                 <columns>
-                   <TableColumn prefWidth="75.0" text="Key" />
-                   <TableColumn prefWidth="75.0" text="Value" />
-                   <TableColumn prefWidth="75.0" text="Description" />
-                 </columns>
-               </ParameterTableView>
-             </AnchorPane>
-           </Tab>
-         </TabPane>
-       </AnchorPane>
-     </items>
-   </SplitPane>
+  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0"
+    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+    AnchorPane.topAnchor="60.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <TabPane prefHeight="300.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"
+        AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+        AnchorPane.topAnchor="0.0">
+        <Tab text="Variables">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <ParameterTableView fx:id="variablesTable" editable="true" layoutX="7.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            </ParameterTableView>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Params">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <ParameterTableView fx:id="paramsTable" editable="true" layoutX="7.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            </ParameterTableView>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Headers">
+          <AnchorPane minHeight="0.0" minWidth="0.0">
+            <ParameterTableView fx:id="headersTable" editable="true" layoutX="7.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            </ParameterTableView>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Authorization">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="261.0" prefWidth="100.0">
+                <ChoiceBox fx:id="authorizationTypeBox" layoutY="8.0" prefWidth="150.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                  AnchorPane.topAnchor="20.0"/>
+              </AnchorPane>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0"/>
+            </SplitPane>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Raw Body">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <TextArea prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Form Data">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <ParameterTableView editable="true" layoutX="7.0" prefHeight="200.0" prefWidth="699.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            </ParameterTableView>
+          </AnchorPane>
+        </Tab>
+        <Tab text="x-www-form-urlencoded">
+          <AnchorPane minHeight="0.0" minWidth="0.0">
+            <ParameterTableView editable="true" layoutX="7.0" prefHeight="200.0" prefWidth="699.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            </ParameterTableView>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Pre-request script">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <TextArea fx:id="txtPreRequest" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Post-response script">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <TextArea fx:id="txtPostResponse" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+          </AnchorPane>
+        </Tab>
+      </TabPane>
+    </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"
+        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+        AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+        <Tab text="Body">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <TextArea fx:id="txtResponseBody" prefHeight="200.0" prefWidth="200.0"
+              AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0"/>
+          </AnchorPane>
+        </Tab>
+        <Tab text="Headers">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <ParameterTableView fx:id="responseHeadersTable" layoutX="7.0" prefHeight="200.0"
+              prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            </ParameterTableView>
+          </AnchorPane>
+        </Tab>
+      </TabPane>
+    </AnchorPane>
+  </SplitPane>
 </AnchorPane>

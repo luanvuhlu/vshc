@@ -1,0 +1,5251 @@
+{
+	"info": {
+		"_postman_id": "5b65d9f8-8c5a-46af-bfd4-fd44d86888f4",
+		"name": "Watson Natural Language Understanding",
+		"description": "Analyze various features of text content at scale. Provide text, raw HTML, or a public URL and IBM Watson Natural Language Understanding will give you results for the features you request. The service cleans HTML content before analysis by default, so the results can ignore most advertisements and other unwanted content.\n\nYou can create [custom models](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-customizing) with Watson Knowledge Studio to detect custom entities and relations in Natural Language Understanding.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20397120"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "analyze",
+					"item": [
+						{
+							"name": "Analyze text (GET)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/analyze?text=veniam sint exercitat&html=veniam sint exercitat&url=veniam sint exercitat&features=classifications&features=semantic_roles&return_analyzed_text=false&clean=true&xpath=veniam sint exercitat&fallback_to_raw=true&language=veniam sint exercitat&categories.explanation=false&categories.limit=3&categories.model=veniam sint exercitat&classifications.model=veniam sint exercitat&concepts.limit=8&emotion.document=true&emotion.targets=nisi si&emotion.targets=aliquip in&entities.limit=50&entities.mentions=false&entities.model=veniam sint exercitat&entities.emotion=false&entities.sentiment=false&keywords.limit=50&keywords.emotion=false&keywords.sentiment=false&relations.model=en-news&semantic_roles.limit=50&semantic_roles.entities=false&semantic_roles.keywords=false&sentiment.document=true&sentiment.model=veniam sint exercitat&sentiment.targets=nisi si&sentiment.targets=aliquip in&syntax.tokens=false&syntax.tokens.lemma=false&syntax.tokens.part_of_speech=false&syntax.sentences=false&limit_text_characters=61993485&version=veniam sint exercitat",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"analyze"
+									],
+									"query": [
+										{
+											"key": "text",
+											"value": "veniam sint exercitat",
+											"description": "URL-encoded text to analyze. One of the `text`, `html`, or `url` parameters is required."
+										},
+										{
+											"key": "html",
+											"value": "veniam sint exercitat",
+											"description": "URL-encoded HTML to analyze. One of the `text`, `html`, or `url` parameters is required."
+										},
+										{
+											"key": "url",
+											"value": "veniam sint exercitat",
+											"description": "Public webpage to analyze. One of the `text`, `html`, or `url` parameters is required. `url` is not supported in IBM Cloud Dedicated instances."
+										},
+										{
+											"key": "features",
+											"value": "classifications",
+											"description": "(Required) Comma separated list of analysis features"
+										},
+										{
+											"key": "features",
+											"value": "semantic_roles",
+											"description": "(Required) Comma separated list of analysis features"
+										},
+										{
+											"key": "return_analyzed_text",
+											"value": "false",
+											"description": "Set this to `true` to show the analyzed text in the response"
+										},
+										{
+											"key": "clean",
+											"value": "true",
+											"description": "Set this to `false` to disable text cleaning when analyzing webpages. For more information about webpage cleaning, see [Analyzing webpages](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-analyzing-webpages)."
+										},
+										{
+											"key": "xpath",
+											"value": "veniam sint exercitat",
+											"description": "An [XPath query](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-analyzing-webpages#xpath) to perform on `html` or `url` input. Results of the query will be appended to the cleaned webpage text before it is analyzed. To analyze only the results of the XPath query, set the `clean` parameter to `false`."
+										},
+										{
+											"key": "fallback_to_raw",
+											"value": "true",
+											"description": "Whether to use raw HTML content if text cleaning fails"
+										},
+										{
+											"key": "language",
+											"value": "veniam sint exercitat",
+											"description": "ISO 639-1 code that specifies the language of your text. This overrides automatic language detection. Language support differs depending on the features you include in your analysis. For more information, see [Language support](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-language-support)."
+										},
+										{
+											"key": "categories.explanation",
+											"value": "false",
+											"description": "Set this to `true` to return explanations for each categorization. **This feature is available only for English language text.**"
+										},
+										{
+											"key": "categories.limit",
+											"value": "3",
+											"description": "Maximum number of categories to return."
+										},
+										{
+											"key": "categories.model",
+											"value": "veniam sint exercitat",
+											"description": "(Beta) Enter a [custom model](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-customizing) ID to override the standard categories model. **This feature is available only for English language text.**"
+										},
+										{
+											"key": "classifications.model",
+											"value": "veniam sint exercitat",
+											"description": "Model ID of the classifications model to be used"
+										},
+										{
+											"key": "concepts.limit",
+											"value": "8",
+											"description": "Maximum number of concepts to return."
+										},
+										{
+											"key": "emotion.document",
+											"value": "true",
+											"description": "Set this to `false` to hide document-level emotion results"
+										},
+										{
+											"key": "emotion.targets",
+											"value": "nisi si",
+											"description": "Target strings, separated by commas. Emotion results will be returned for each target string found in the document"
+										},
+										{
+											"key": "emotion.targets",
+											"value": "aliquip in",
+											"description": "Target strings, separated by commas. Emotion results will be returned for each target string found in the document"
+										},
+										{
+											"key": "entities.limit",
+											"value": "50",
+											"description": "Maximum number of entities to return."
+										},
+										{
+											"key": "entities.mentions",
+											"value": "false",
+											"description": "Set this to `true` to return locations of entity mentions"
+										},
+										{
+											"key": "entities.model",
+											"value": "veniam sint exercitat",
+											"description": "Enter a [custom model](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-customizing) ID to override the standard entity detection model"
+										},
+										{
+											"key": "entities.emotion",
+											"value": "false",
+											"description": "Set this to `true` to return emotion information for detected entities"
+										},
+										{
+											"key": "entities.sentiment",
+											"value": "false",
+											"description": "Set this to `true` to return sentiment information for detected entities"
+										},
+										{
+											"key": "keywords.limit",
+											"value": "50",
+											"description": "Maximum number of keywords to return."
+										},
+										{
+											"key": "keywords.emotion",
+											"value": "false",
+											"description": "Set this to `true` to return emotion information for detected keywords"
+										},
+										{
+											"key": "keywords.sentiment",
+											"value": "false",
+											"description": "Set this to `true` to return sentiment information for detected keywords"
+										},
+										{
+											"key": "relations.model",
+											"value": "en-news",
+											"description": "Enter a [custom model](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-customizing) ID to override the default `en-news` relations model"
+										},
+										{
+											"key": "semantic_roles.limit",
+											"value": "50",
+											"description": "Maximum number of semantic_roles results to return"
+										},
+										{
+											"key": "semantic_roles.entities",
+											"value": "false",
+											"description": "Set this to `true` to return entity information for subjects and objects"
+										},
+										{
+											"key": "semantic_roles.keywords",
+											"value": "false",
+											"description": "Set this to `true` to return keyword information for subjects and objects"
+										},
+										{
+											"key": "sentiment.document",
+											"value": "true",
+											"description": "Set this to `false` to disable document level sentiment analysis"
+										},
+										{
+											"key": "sentiment.model",
+											"value": "veniam sint exercitat",
+											"description": "(Beta) Enter a [custom model](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-customizing) ID to override the standard sentiment model for all sentiment analysis operations in the request, including targeted sentiment for entities and keywords."
+										},
+										{
+											"key": "sentiment.targets",
+											"value": "nisi si",
+											"description": "Sentiment information will return for each target string that is found in the text"
+										},
+										{
+											"key": "sentiment.targets",
+											"value": "aliquip in",
+											"description": "Sentiment information will return for each target string that is found in the text"
+										},
+										{
+											"key": "syntax.tokens",
+											"value": "false",
+											"description": "Set this to `true` to return information about the tokens in the input text."
+										},
+										{
+											"key": "syntax.tokens.lemma",
+											"value": "false",
+											"description": "Set this to `true` to return the lemma for each token."
+										},
+										{
+											"key": "syntax.tokens.part_of_speech",
+											"value": "false",
+											"description": "Set this to `true` to return the part of speech for each token."
+										},
+										{
+											"key": "syntax.sentences",
+											"value": "false",
+											"description": "Set this to `true` to return information about the sentences in the input text."
+										},
+										{
+											"key": "limit_text_characters",
+											"value": "61993485",
+											"description": "Sets the maximum number of characters that are processed by the service."
+										},
+										{
+											"key": "version",
+											"value": "veniam sint exercitat",
+											"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+										}
+									]
+								},
+								"description": "Analyzes raw text, HTML, or a public webpage.\n\nIf a language for the input text is not specified with the `language` parameter, the service [automatically detects the language](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-detectable-languages)."
+							},
+							"response": [
+								{
+									"name": "Analysis results",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/analyze?text=veniam sint exercitat&html=veniam sint exercitat&url=veniam sint exercitat&features=emotion&features=sentiment&return_analyzed_text=false&clean=true&xpath=veniam sint exercitat&fallback_to_raw=true&language=veniam sint exercitat&categories.explanation=false&categories.limit=3&categories.model=veniam sint exercitat&classifications.model=veniam sint exercitat&concepts.limit=8&emotion.document=true&emotion.targets=irure ea labore ullamco&emotion.targets=mollit&entities.limit=50&entities.mentions=false&entities.model=veniam sint exercitat&entities.emotion=false&entities.sentiment=false&keywords.limit=50&keywords.emotion=false&keywords.sentiment=false&relations.model=en-news&semantic_roles.limit=50&semantic_roles.entities=false&semantic_roles.keywords=false&sentiment.document=true&sentiment.model=veniam sint exercitat&sentiment.targets=irure ea labore ullamco&sentiment.targets=mollit&syntax.tokens=false&syntax.tokens.lemma=false&syntax.tokens.part_of_speech=false&syntax.sentences=false&limit_text_characters=61993485&version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"analyze"
+											],
+											"query": [
+												{
+													"key": "text",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "html",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "url",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "features",
+													"value": "emotion"
+												},
+												{
+													"key": "features",
+													"value": "sentiment"
+												},
+												{
+													"key": "return_analyzed_text",
+													"value": "false"
+												},
+												{
+													"key": "clean",
+													"value": "true"
+												},
+												{
+													"key": "xpath",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "fallback_to_raw",
+													"value": "true"
+												},
+												{
+													"key": "language",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "categories.explanation",
+													"value": "false"
+												},
+												{
+													"key": "categories.limit",
+													"value": "3"
+												},
+												{
+													"key": "categories.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "classifications.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "concepts.limit",
+													"value": "8"
+												},
+												{
+													"key": "emotion.document",
+													"value": "true"
+												},
+												{
+													"key": "emotion.targets",
+													"value": "irure ea labore ullamco"
+												},
+												{
+													"key": "emotion.targets",
+													"value": "mollit"
+												},
+												{
+													"key": "entities.limit",
+													"value": "50"
+												},
+												{
+													"key": "entities.mentions",
+													"value": "false"
+												},
+												{
+													"key": "entities.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "entities.emotion",
+													"value": "false"
+												},
+												{
+													"key": "entities.sentiment",
+													"value": "false"
+												},
+												{
+													"key": "keywords.limit",
+													"value": "50"
+												},
+												{
+													"key": "keywords.emotion",
+													"value": "false"
+												},
+												{
+													"key": "keywords.sentiment",
+													"value": "false"
+												},
+												{
+													"key": "relations.model",
+													"value": "en-news"
+												},
+												{
+													"key": "semantic_roles.limit",
+													"value": "50"
+												},
+												{
+													"key": "semantic_roles.entities",
+													"value": "false"
+												},
+												{
+													"key": "semantic_roles.keywords",
+													"value": "false"
+												},
+												{
+													"key": "sentiment.document",
+													"value": "true"
+												},
+												{
+													"key": "sentiment.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "sentiment.targets",
+													"value": "irure ea labore ullamco"
+												},
+												{
+													"key": "sentiment.targets",
+													"value": "mollit"
+												},
+												{
+													"key": "syntax.tokens",
+													"value": "false"
+												},
+												{
+													"key": "syntax.tokens.lemma",
+													"value": "false"
+												},
+												{
+													"key": "syntax.tokens.part_of_speech",
+													"value": "false"
+												},
+												{
+													"key": "syntax.sentences",
+													"value": "false"
+												},
+												{
+													"key": "limit_text_characters",
+													"value": "61993485"
+												},
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"entities\": [\n    {\n      \"type\": \"Company\",\n      \"relevance\": 0.89792,\n      \"count\": 12,\n      \"name\": \"IBM\",\n      \"disambiguation\": {\n        \"name\": \"IBM\",\n        \"dbpedia_resource\": \"http://dbpedia.org/resource/IBM\",\n        \"subtype\": [\n          \"SoftwareLicense\",\n          \"OperatingSystemDeveloper\",\n          \"ProcessorManufacturer\",\n          \"SoftwareDeveloper\",\n          \"CompanyFounder\",\n          \"ProgrammingLanguageDesigner\",\n          \"ProgrammingLanguageDeveloper\"\n        ]\n      },\n      \"emotion\": {\n        \"sadness\": 0.271362,\n        \"joy\": 0.618694,\n        \"fear\": 0.033186,\n        \"disgust\": 0.056113,\n        \"anger\": 0.099437\n      }\n    }\n  ],\n  \"keywords\": [\n    {\n      \"emotion\": {\n        \"sadness\": 0.174379,\n        \"joy\": 0.66067,\n        \"fear\": 0.051475,\n        \"disgust\": 0.114401,\n        \"anger\": 0.044105\n      },\n      \"relevance\": \"0.900808\",\n      \"sentiment\": {\n        \"score\": 0.419889\n      },\n      \"text\": \"free trial\",\n      \"count\": 1\n    }\n  ],\n  \"language\": \"en\",\n  \"retrieved_url\": \"https://www.ibm.com/us-en/\"\n}"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/analyze?text=veniam sint exercitat&html=veniam sint exercitat&url=veniam sint exercitat&features=emotion&features=sentiment&return_analyzed_text=false&clean=true&xpath=veniam sint exercitat&fallback_to_raw=true&language=veniam sint exercitat&categories.explanation=false&categories.limit=3&categories.model=veniam sint exercitat&classifications.model=veniam sint exercitat&concepts.limit=8&emotion.document=true&emotion.targets=irure ea labore ullamco&emotion.targets=mollit&entities.limit=50&entities.mentions=false&entities.model=veniam sint exercitat&entities.emotion=false&entities.sentiment=false&keywords.limit=50&keywords.emotion=false&keywords.sentiment=false&relations.model=en-news&semantic_roles.limit=50&semantic_roles.entities=false&semantic_roles.keywords=false&sentiment.document=true&sentiment.model=veniam sint exercitat&sentiment.targets=irure ea labore ullamco&sentiment.targets=mollit&syntax.tokens=false&syntax.tokens.lemma=false&syntax.tokens.part_of_speech=false&syntax.sentences=false&limit_text_characters=61993485&version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"analyze"
+											],
+											"query": [
+												{
+													"key": "text",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "html",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "url",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "features",
+													"value": "emotion"
+												},
+												{
+													"key": "features",
+													"value": "sentiment"
+												},
+												{
+													"key": "return_analyzed_text",
+													"value": "false"
+												},
+												{
+													"key": "clean",
+													"value": "true"
+												},
+												{
+													"key": "xpath",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "fallback_to_raw",
+													"value": "true"
+												},
+												{
+													"key": "language",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "categories.explanation",
+													"value": "false"
+												},
+												{
+													"key": "categories.limit",
+													"value": "3"
+												},
+												{
+													"key": "categories.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "classifications.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "concepts.limit",
+													"value": "8"
+												},
+												{
+													"key": "emotion.document",
+													"value": "true"
+												},
+												{
+													"key": "emotion.targets",
+													"value": "irure ea labore ullamco"
+												},
+												{
+													"key": "emotion.targets",
+													"value": "mollit"
+												},
+												{
+													"key": "entities.limit",
+													"value": "50"
+												},
+												{
+													"key": "entities.mentions",
+													"value": "false"
+												},
+												{
+													"key": "entities.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "entities.emotion",
+													"value": "false"
+												},
+												{
+													"key": "entities.sentiment",
+													"value": "false"
+												},
+												{
+													"key": "keywords.limit",
+													"value": "50"
+												},
+												{
+													"key": "keywords.emotion",
+													"value": "false"
+												},
+												{
+													"key": "keywords.sentiment",
+													"value": "false"
+												},
+												{
+													"key": "relations.model",
+													"value": "en-news"
+												},
+												{
+													"key": "semantic_roles.limit",
+													"value": "50"
+												},
+												{
+													"key": "semantic_roles.entities",
+													"value": "false"
+												},
+												{
+													"key": "semantic_roles.keywords",
+													"value": "false"
+												},
+												{
+													"key": "sentiment.document",
+													"value": "true"
+												},
+												{
+													"key": "sentiment.model",
+													"value": "veniam sint exercitat"
+												},
+												{
+													"key": "sentiment.targets",
+													"value": "irure ea labore ullamco"
+												},
+												{
+													"key": "sentiment.targets",
+													"value": "mollit"
+												},
+												{
+													"key": "syntax.tokens",
+													"value": "false"
+												},
+												{
+													"key": "syntax.tokens.lemma",
+													"value": "false"
+												},
+												{
+													"key": "syntax.tokens.part_of_speech",
+													"value": "false"
+												},
+												{
+													"key": "syntax.sentences",
+													"value": "false"
+												},
+												{
+													"key": "limit_text_characters",
+													"value": "61993485"
+												},
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Analyze text",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"features\": {\n    \"classifications\": {\n      \"model\": \"eiusmod velit in sunt\"\n    },\n    \"concepts\": {\n      \"limit\": 3\n    },\n    \"emotion\": {\n      \"targets\": [\n        \"apples\",\n        \"oranges\"\n      ]\n    },\n    \"entities\": {\n      \"sentiment\": true,\n      \"limit\": 1\n    },\n    \"keywords\": {\n      \"sentiment\": true,\n      \"emotion\": true,\n      \"limit\": 3\n    },\n    \"metadata\": {\n      \"Loreme\": true,\n      \"adipisicing2_a\": true,\n      \"dolor_7\": \"dolor ullamco elit si\",\n      \"minim_20\": false\n    },\n    \"relations\": {\n      \"model\": \"aute minim\"\n    },\n    \"semantic_roles\": {\n      \"keywords\": true,\n      \"entities\": true\n    },\n    \"sentiment\": {\n      \"targets\": [\n        \"stocks\"\n      ]\n    },\n    \"summarization\": {\n      \"limit\": 3\n    },\n    \"categories\": {\n      \"explanation\": false,\n      \"limit\": 3,\n      \"model\": \"in fugiat adipisicing aute\"\n    },\n    \"syntax\": {\n      \"tokens\": {\n        \"lemma\": true,\n        \"part_of_speech\": true\n      },\n      \"sentences\": true\n    }\n  },\n  \"text\": \"qui\",\n  \"html\": \"est ipsum\",\n  \"url\": \"aliquip\",\n  \"clean\": true,\n  \"xpath\": \"deserunt reprehenderit\",\n  \"fallback_to_raw\": true,\n  \"return_analyzed_text\": false,\n  \"language\": \"culpa\",\n  \"limit_text_characters\": -78061057,\n  \"advanced_rules.model\": \"esse enim sed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/analyze?version=veniam sint exercitat",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"analyze"
+									],
+									"query": [
+										{
+											"key": "version",
+											"value": "veniam sint exercitat",
+											"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+										}
+									]
+								},
+								"description": "Analyzes text, HTML, or a public webpage for the following features:\n- Categories\n- Classifications\n- Concepts\n- Emotion\n- Entities\n- Keywords\n- Metadata\n- Relations\n- Semantic roles\n- Sentiment\n- Syntax\n- Summarization (Experimental)\n\nIf a language for the input text is not specified with the `language` parameter, the service [automatically detects the language](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-detectable-languages)."
+							},
+							"response": [
+								{
+									"name": "Analysis results",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"features\": {\n    \"classifications\": {\n      \"model\": \"officia sint\"\n    },\n    \"concepts\": {\n      \"limit\": 3\n    },\n    \"emotion\": {\n      \"targets\": [\n        \"apples\",\n        \"oranges\"\n      ]\n    },\n    \"entities\": {\n      \"sentiment\": true,\n      \"limit\": 1\n    },\n    \"keywords\": {\n      \"sentiment\": true,\n      \"emotion\": true,\n      \"limit\": 3\n    },\n    \"metadata\": {\n      \"elit7\": true,\n      \"seda\": false\n    },\n    \"relations\": {\n      \"model\": \"sed laborum\"\n    },\n    \"semantic_roles\": {\n      \"keywords\": true,\n      \"entities\": true\n    },\n    \"sentiment\": {\n      \"document\": true,\n      \"targets\": [\n        \"irure sint dolor consequat\",\n        \"tempor id Duis esse eiusmod\"\n      ],\n      \"model\": \"occae\"\n    },\n    \"summarization\": {\n      \"limit\": 3\n    },\n    \"categories\": {\n      \"explanation\": false,\n      \"limit\": 3,\n      \"model\": \"non sit\"\n    },\n    \"syntax\": {\n      \"tokens\": {\n        \"lemma\": true,\n        \"part_of_speech\": true\n      },\n      \"sentences\": true\n    }\n  },\n  \"text\": \"adipisicing ut\",\n  \"html\": \"enim mollit culpa aute\",\n  \"url\": \"occaecat amet\",\n  \"clean\": true,\n  \"xpath\": \"minim ex nulla\",\n  \"fallback_to_raw\": true,\n  \"return_analyzed_text\": false,\n  \"language\": \"tempor\",\n  \"limit_text_characters\": -77799776,\n  \"advanced_rules.model\": \"culpa\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/analyze?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"analyze"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"entities\": [\n    {\n      \"type\": \"Company\",\n      \"relevance\": 0.89792,\n      \"count\": 12,\n      \"name\": \"IBM\",\n      \"disambiguation\": {\n        \"name\": \"IBM\",\n        \"dbpedia_resource\": \"http://dbpedia.org/resource/IBM\",\n        \"subtype\": [\n          \"SoftwareLicense\",\n          \"OperatingSystemDeveloper\",\n          \"ProcessorManufacturer\",\n          \"SoftwareDeveloper\",\n          \"CompanyFounder\",\n          \"ProgrammingLanguageDesigner\",\n          \"ProgrammingLanguageDeveloper\"\n        ]\n      },\n      \"emotion\": {\n        \"sadness\": 0.271362,\n        \"joy\": 0.618694,\n        \"fear\": 0.033186,\n        \"disgust\": 0.056113,\n        \"anger\": 0.099437\n      }\n    }\n  ],\n  \"keywords\": [\n    {\n      \"emotion\": {\n        \"sadness\": 0.174379,\n        \"joy\": 0.66067,\n        \"fear\": 0.051475,\n        \"disgust\": 0.114401,\n        \"anger\": 0.044105\n      },\n      \"relevance\": \"0.900808\",\n      \"sentiment\": {\n        \"score\": 0.419889\n      },\n      \"text\": \"free trial\",\n      \"count\": 1\n    }\n  ],\n  \"language\": \"en\",\n  \"retrieved_url\": \"https://www.ibm.com/us-en/\"\n}"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"features\": {\n    \"classifications\": {\n      \"model\": \"officia sint\"\n    },\n    \"concepts\": {\n      \"limit\": 3\n    },\n    \"emotion\": {\n      \"targets\": [\n        \"apples\",\n        \"oranges\"\n      ]\n    },\n    \"entities\": {\n      \"sentiment\": true,\n      \"limit\": 1\n    },\n    \"keywords\": {\n      \"sentiment\": true,\n      \"emotion\": true,\n      \"limit\": 3\n    },\n    \"metadata\": {\n      \"elit7\": true,\n      \"seda\": false\n    },\n    \"relations\": {\n      \"model\": \"sed laborum\"\n    },\n    \"semantic_roles\": {\n      \"keywords\": true,\n      \"entities\": true\n    },\n    \"sentiment\": {\n      \"document\": true,\n      \"targets\": [\n        \"irure sint dolor consequat\",\n        \"tempor id Duis esse eiusmod\"\n      ],\n      \"model\": \"occae\"\n    },\n    \"summarization\": {\n      \"limit\": 3\n    },\n    \"categories\": {\n      \"explanation\": false,\n      \"limit\": 3,\n      \"model\": \"non sit\"\n    },\n    \"syntax\": {\n      \"tokens\": {\n        \"lemma\": true,\n        \"part_of_speech\": true\n      },\n      \"sentences\": true\n    }\n  },\n  \"text\": \"adipisicing ut\",\n  \"html\": \"enim mollit culpa aute\",\n  \"url\": \"occaecat amet\",\n  \"clean\": true,\n  \"xpath\": \"minim ex nulla\",\n  \"fallback_to_raw\": true,\n  \"return_analyzed_text\": false,\n  \"language\": \"tempor\",\n  \"limit_text_characters\": -77799776,\n  \"advanced_rules.model\": \"culpa\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/analyze?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"analyze"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "models",
+					"item": [
+						{
+							"name": "sentiment",
+							"item": [
+								{
+									"name": "{model_id}",
+									"item": [
+										{
+											"name": "Get sentiment model details",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "(Beta) Returns the status of the sentiment model with the given model ID."
+											},
+											"response": [
+												{
+													"name": "Model retrieved",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"name\": \"MySentimentModel\",\n  \"language\": \"en\",\n  \"model_version\": \"1.0.1\",\n  \"status\": \"available\",\n  \"notices\": [],\n  \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n  \"features\": [\n    \"sentiment\"\n  ],\n  \"created\": \"2020-04-10T19:32:42Z\",\n  \"last_trained\": \"2020-04-10T19:32:42Z\"\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Update sentiment model",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "laboris in",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "tempor irure do",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "sed velit est consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "veniam nostrud deserunt anim",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "dolor nulla Ut",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "officia mollit aute esse cillum",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "reprehenderit voluptate con",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "(Beta) Overwrites the training data associated with this custom sentiment model and retrains the model. The new model replaces the current deployment."
+											},
+											"response": [
+												{
+													"name": "Model overwrite successful",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "laboris in",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "tempor irure do",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "sed velit est consectetur",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "veniam nostrud deserunt anim",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "dolor nulla Ut",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "officia mollit aute esse cillum",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "reprehenderit voluptate con",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"models\": [\n    {\n      \"name\": \"MySentimentModel\",\n      \"language\": \"en\",\n      \"model_version\": \"1.0.1\",\n      \"status\": \"deploying\",\n      \"notices\": [],\n      \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n      \"features\": [\n        \"sentiment\"\n      ],\n      \"created\": \"2020-04-10T20:21:46Z\",\n      \"last_trained\": \"2020-04-10T20:21:46Z\",\n      \"last_deployed\": \"2020-04-10T20:21:46Z\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "laboris in",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "tempor irure do",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "sed velit est consectetur",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "veniam nostrud deserunt anim",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "dolor nulla Ut",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "officia mollit aute esse cillum",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "reprehenderit voluptate con",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "laboris in",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "tempor irure do",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "sed velit est consectetur",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "veniam nostrud deserunt anim",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "dolor nulla Ut",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "officia mollit aute esse cillum",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "reprehenderit voluptate con",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Delete sentiment model",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "(Beta) Un-deploys the custom sentiment model with the given model ID and deletes all associated customer data, including any training data or binary artifacts."
+											},
+											"response": [
+												{
+													"name": "Delete model results",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"deleted\": \"2987ca3f-205f-4786-a168-2d8026ddcc9b\"\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/sentiment/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"sentiment",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Create sentiment model",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "language",
+													"value": "eu",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "training_data",
+													"value": "laboris in",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "tempor irure do",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "user_metadata",
+													"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "description",
+													"value": "sed velit est consectetur",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "model_version",
+													"value": "veniam nostrud deserunt anim",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "version",
+													"value": "dolor nulla Ut",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "workspace_id",
+													"value": "officia mollit aute esse cillum",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "version_description",
+													"value": "reprehenderit voluptate con",
+													"description": "undefined",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												"sentiment"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat",
+													"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+												}
+											]
+										},
+										"description": "(Beta) Creates a custom sentiment model by uploading training data and associated metadata. The model begins the training and deploying process and is ready to use when the `status` is `available`."
+									},
+									"response": [
+										{
+											"name": "Model created successfully",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "laboris in",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "tempor irure do",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "sed velit est consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "veniam nostrud deserunt anim",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "dolor nulla Ut",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "officia mollit aute esse cillum",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "reprehenderit voluptate con",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": \"MySentimentModel\",\n  \"language\": \"en\",\n  \"model_version\": \"1.0.1\",\n  \"status\": \"deploying\",\n  \"notices\": [],\n  \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n  \"features\": [\n    \"sentiment\"\n  ],\n  \"created\": \"2020-04-10T19:32:42Z\",\n  \"last_trained\": \"2020-04-10T19:32:42Z\",\n  \"last_deployed\": \"2020-04-10T19:32:42Z\"\n}"
+										},
+										{
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "laboris in",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "tempor irure do",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "sed velit est consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "veniam nostrud deserunt anim",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "dolor nulla Ut",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "officia mollit aute esse cillum",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "reprehenderit voluptate con",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										},
+										{
+											"name": "Access forbidden",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "laboris in",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "tempor irure do",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"sunt_04\":\"aliquip ea velit\",\"ea9b\":\"ea \"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "sed velit est consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "veniam nostrud deserunt anim",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "dolor nulla Ut",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "officia mollit aute esse cillum",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "reprehenderit voluptate con",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										}
+									]
+								},
+								{
+									"name": "List sentiment models",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												"sentiment"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat",
+													"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+												}
+											]
+										},
+										"description": "(Beta) Returns all custom sentiment models associated with this service instance."
+									},
+									"response": [
+										{
+											"name": "Models retrieved",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"models\": [\n    {\n      \"name\": \"MySentimentModel\",\n      \"language\": \"en\",\n      \"model_version\": \"1.0.1\",\n      \"status\": \"available\",\n      \"notices\": [],\n      \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n      \"features\": [\n        \"sentiment\"\n      ],\n      \"created\": \"2020-04-10T19:32:42Z\",\n      \"last_trained\": \"2020-04-10T19:32:42Z\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										},
+										{
+											"name": "Access forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/sentiment?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"sentiment"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "categories",
+							"item": [
+								{
+									"name": "{model_id}",
+									"item": [
+										{
+											"name": "Get categories model details",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"console.log('This is Pre-request')"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"console.log('This is Post-response')"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "(Beta) Returns the status of the categories model with the given model ID."
+											},
+											"response": [
+												{
+													"name": "Model retrieved",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"name\": \"MyCategoriesModel\",\n  \"language\": \"en\",\n  \"model_version\": \"1.0.1\",\n  \"status\": \"available\",\n  \"notices\": [],\n  \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n  \"features\": [\n    \"categories\"\n  ],\n  \"created\": \"2020-04-10T19:32:42Z\",\n  \"last_trained\": \"2020-04-10T19:32:42Z\",\n  \"last_deployed\": \"2020-04-10T19:32:42Z\"\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Update categories model",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "veniam proident velit sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "irure nulla tempor dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "ir",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"veniam7\":\"in aute nulla anim\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "f",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "dolor ipsum mollit",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "in ea",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "nisi voluptate ipsum esse cupidatat",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "cillum in",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "(Beta) Overwrites the training data associated with this custom categories model and retrains the model. The new model replaces the current deployment."
+											},
+											"response": [
+												{
+													"name": "Model overwrite successful",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "veniam proident velit sunt",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "irure nulla tempor dolore",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "ir",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"veniam7\":\"in aute nulla anim\"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "f",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "dolor ipsum mollit",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "in ea",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "nisi voluptate ipsum esse cupidatat",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "cillum in",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"models\": [\n    {\n      \"name\": \"MyCategoriesModel\",\n      \"language\": \"en\",\n      \"model_version\": \"1.0.1\",\n      \"status\": \"deploying\",\n      \"notices\": [],\n      \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n      \"features\": [\n        \"categories\"\n      ],\n      \"created\": \"2020-04-10T20:21:46Z\",\n      \"last_trained\": \"2020-04-10T20:21:46Z\",\n      \"last_deployed\": \"2020-04-10T20:21:46Z\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "veniam proident velit sunt",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "irure nulla tempor dolore",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "ir",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"veniam7\":\"in aute nulla anim\"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "f",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "dolor ipsum mollit",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "in ea",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "nisi voluptate ipsum esse cupidatat",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "cillum in",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "veniam proident velit sunt",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "irure nulla tempor dolore",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "ir",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"veniam7\":\"in aute nulla anim\"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "f",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "dolor ipsum mollit",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "in ea",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "nisi voluptate ipsum esse cupidatat",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "cillum in",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Delete categories model",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "(Beta) Un-deploys the custom categories model with the given model ID and deletes all associated customer data, including any training data or binary artifacts."
+											},
+											"response": [
+												{
+													"name": "Delete model results",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"deleted\": \"2987ca3f-205f-4786-a168-2d8026ddcc9b\"\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/categories/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"categories",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Create categories model",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "language",
+													"value": "veniam proident velit sunt",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "training_data",
+													"value": "irure nulla tempor dolore",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "ir",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "user_metadata",
+													"value": "{\"veniam7\":\"in aute nulla anim\"}",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "description",
+													"value": "f",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "model_version",
+													"value": "dolor ipsum mollit",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "version",
+													"value": "in ea",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "workspace_id",
+													"value": "nisi voluptate ipsum esse cupidatat",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "version_description",
+													"value": "cillum in",
+													"description": "undefined",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												"categories"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat",
+													"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+												}
+											]
+										},
+										"description": "(Beta) Creates a custom categories model by uploading training data and associated metadata. The model begins the training and deploying process and is ready to use when the `status` is `available`."
+									},
+									"response": [
+										{
+											"name": "Model created successfully",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "veniam proident velit sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "irure nulla tempor dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "ir",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"veniam7\":\"in aute nulla anim\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "f",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "dolor ipsum mollit",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "in ea",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "nisi voluptate ipsum esse cupidatat",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "cillum in",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": \"MyCategoriesModel\",\n  \"language\": \"en\",\n  \"model_version\": \"1.0.1\",\n  \"status\": \"training\",\n  \"notices\": [],\n  \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n  \"features\": [\n    \"categories\"\n  ],\n  \"created\": \"2020-04-10T19:32:42Z\",\n  \"last_trained\": \"2020-04-10T19:32:42Z\",\n  \"last_deployed\": \"2020-04-10T19:32:42Z\"\n}"
+										},
+										{
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "veniam proident velit sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "irure nulla tempor dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "ir",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"veniam7\":\"in aute nulla anim\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "f",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "dolor ipsum mollit",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "in ea",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "nisi voluptate ipsum esse cupidatat",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "cillum in",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										},
+										{
+											"name": "Access forbidden",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "veniam proident velit sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "irure nulla tempor dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "ir",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"veniam7\":\"in aute nulla anim\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "f",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "dolor ipsum mollit",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "in ea",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "nisi voluptate ipsum esse cupidatat",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "cillum in",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										}
+									]
+								},
+								{
+									"name": "List categories models",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												"categories"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat",
+													"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+												}
+											]
+										},
+										"description": "(Beta) Returns all custom categories models associated with this service instance."
+									},
+									"response": [
+										{
+											"name": "Models retrieved",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"models\": [\n    {\n      \"name\": \"MyCategoriesModel\",\n      \"language\": \"en\",\n      \"model_version\": \"1.0.1\",\n      \"status\": \"available\",\n      \"notices\": [],\n      \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n      \"features\": [\n        \"categories\"\n      ],\n      \"created\": \"2020-04-10T19:32:42Z\",\n      \"last_trained\": \"2020-04-10T19:32:42Z\",\n      \"last_deployed\": \"2020-04-10T19:32:42Z\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										},
+										{
+											"name": "Access forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "classifications",
+							"item": [
+								{
+									"name": "{model_id}",
+									"item": [
+										{
+											"name": "Get classifications model details",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "Returns the status of the classifications model with the given model ID."
+											},
+											"response": [
+												{
+													"name": "Model retrieved",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"name\": \"MyClassificationsModel\",\n  \"language\": \"en\",\n  \"model_version\": \"1.0.1\",\n  \"status\": \"available\",\n  \"notices\": [],\n  \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n  \"features\": [\n    \"classifications\"\n  ],\n  \"created\": \"2020-04-10T19:32:42Z\",\n  \"last_trained\": \"2020-04-10T19:32:42Z\",\n  \"last_deployed\": \"2020-04-10T19:32:42Z\"\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Update classifications model",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "irure labore consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "ea ullamco dolor",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "proident dolore incidi",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"consequat_9\":\"sit aliqua\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "Ut dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "anim ullamco in sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "aliqua est dolore eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "enim Duis mollit sed",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "pariatur culpa adipisicing eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_parameters",
+															"value": "{\"model_type\":\"single_label\"}",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "Overwrites the training data associated with this custom classifications model and retrains the model. The new model replaces the current deployment."
+											},
+											"response": [
+												{
+													"name": "Model overwrite successful",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "irure labore consectetur",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "ea ullamco dolor",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "proident dolore incidi",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"consequat_9\":\"sit aliqua\"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "Ut dolore",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "anim ullamco in sunt",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "aliqua est dolore eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "enim Duis mollit sed",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "pariatur culpa adipisicing eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_parameters",
+																	"value": "{\"model_type\":\"single_label\"}",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"models\": [\n    {\n      \"name\": \"MyClassificationsModel\",\n      \"language\": \"en\",\n      \"model_version\": \"1.0.1\",\n      \"status\": \"deploying\",\n      \"notices\": [],\n      \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n      \"features\": [\n        \"classifications\"\n      ],\n      \"created\": \"2020-04-10T20:21:46Z\",\n      \"last_trained\": \"2020-04-10T20:21:46Z\",\n      \"last_deployed\": \"2020-04-10T20:21:46Z\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "irure labore consectetur",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "ea ullamco dolor",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "proident dolore incidi",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"consequat_9\":\"sit aliqua\"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "Ut dolore",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "anim ullamco in sunt",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "aliqua est dolore eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "enim Duis mollit sed",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "pariatur culpa adipisicing eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_parameters",
+																	"value": "{\"model_type\":\"single_label\"}",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "language",
+																	"value": "irure labore consectetur",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_data",
+																	"value": "ea ullamco dolor",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "name",
+																	"value": "proident dolore incidi",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "user_metadata",
+																	"value": "{\"consequat_9\":\"sit aliqua\"}",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "description",
+																	"value": "Ut dolore",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "model_version",
+																	"value": "anim ullamco in sunt",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version",
+																	"value": "aliqua est dolore eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "workspace_id",
+																	"value": "enim Duis mollit sed",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "version_description",
+																	"value": "pariatur culpa adipisicing eu",
+																	"description": "undefined",
+																	"type": "text"
+																},
+																{
+																	"key": "training_parameters",
+																	"value": "{\"model_type\":\"single_label\"}",
+																	"description": "undefined",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Delete classifications model",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications",
+														":model_id"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat",
+															"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+														}
+													],
+													"variable": [
+														{
+															"key": "model_id",
+															"value": "veniam sint exercitat",
+															"description": "(Required) ID of the model"
+														}
+													]
+												},
+												"description": "Un-deploys the custom classifications model with the given model ID and deletes all associated customer data, including any training data or binary artifacts."
+											},
+											"response": [
+												{
+													"name": "Delete model results",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"deleted\": \"2987ca3f-205f-4786-a168-2d8026ddcc9b\"\n}"
+												},
+												{
+													"name": "Invalid request",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												},
+												{
+													"name": "Access forbidden",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "<API Key>",
+																"description": "Added as a part of security scheme: apikey"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/models/classifications/:model_id?version=veniam sint exercitat",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"models",
+																"classifications",
+																":model_id"
+															],
+															"query": [
+																{
+																	"key": "version",
+																	"value": "veniam sint exercitat"
+																}
+															],
+															"variable": [
+																{
+																	"key": "model_id",
+																	"value": "veniam sint exercitat",
+																	"description": "(Required) ID of the model"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Create classifications model",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "language",
+													"value": "irure labore consectetur",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "training_data",
+													"value": "ea ullamco dolor",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "proident dolore incidi",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "user_metadata",
+													"value": "{\"consequat_9\":\"sit aliqua\"}",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "description",
+													"value": "Ut dolore",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "model_version",
+													"value": "anim ullamco in sunt",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "version",
+													"value": "aliqua est dolore eu",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "workspace_id",
+													"value": "enim Duis mollit sed",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "version_description",
+													"value": "pariatur culpa adipisicing eu",
+													"description": "undefined",
+													"type": "text"
+												},
+												{
+													"key": "training_parameters",
+													"value": "{\"model_type\":\"single_label\"}",
+													"description": "undefined",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/classifications?version={{version}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												"classifications"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "{{version}}",
+													"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+												}
+											]
+										},
+										"description": "Creates a custom classifications model by uploading training data and associated metadata. The model begins the training and deploying process and is ready to use when the `status` is `available`."
+									},
+									"response": [
+										{
+											"name": "Model created successfully",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "irure labore consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "ea ullamco dolor",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "proident dolore incidi",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"consequat_9\":\"sit aliqua\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "Ut dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "anim ullamco in sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "aliqua est dolore eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "enim Duis mollit sed",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "pariatur culpa adipisicing eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_parameters",
+															"value": "{\"model_type\":\"single_label\"}",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": \"MyClassificationsModel\",\n  \"language\": \"en\",\n  \"model_version\": \"1.0.1\",\n  \"status\": \"training\",\n  \"notices\": [],\n  \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n  \"features\": [\n    \"classifications\"\n  ],\n  \"created\": \"2020-04-10T19:32:42Z\",\n  \"last_trained\": \"2020-04-10T19:32:42Z\",\n  \"last_deployed\": \"2020-04-10T19:32:42Z\"\n}"
+										},
+										{
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "irure labore consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "ea ullamco dolor",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "proident dolore incidi",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"consequat_9\":\"sit aliqua\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "Ut dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "anim ullamco in sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "aliqua est dolore eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "enim Duis mollit sed",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "pariatur culpa adipisicing eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_parameters",
+															"value": "{\"model_type\":\"single_label\"}",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										},
+										{
+											"name": "Access forbidden",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "language",
+															"value": "irure labore consectetur",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_data",
+															"value": "ea ullamco dolor",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "name",
+															"value": "proident dolore incidi",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "user_metadata",
+															"value": "{\"consequat_9\":\"sit aliqua\"}",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "description",
+															"value": "Ut dolore",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "model_version",
+															"value": "anim ullamco in sunt",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version",
+															"value": "aliqua est dolore eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "workspace_id",
+															"value": "enim Duis mollit sed",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "version_description",
+															"value": "pariatur culpa adipisicing eu",
+															"description": "undefined",
+															"type": "text"
+														},
+														{
+															"key": "training_parameters",
+															"value": "{\"model_type\":\"single_label\"}",
+															"description": "undefined",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										}
+									]
+								},
+								{
+									"name": "List classifications models",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/classifications?version={{version}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												"classifications"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "{{version}}",
+													"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+												}
+											]
+										},
+										"description": "Returns all custom classifications models associated with this service instance."
+									},
+									"response": [
+										{
+											"name": "Models retrieved",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"models\": [\n    {\n      \"name\": \"MyClassificationsModel\",\n      \"language\": \"en\",\n      \"model_version\": \"1.0.1\",\n      \"status\": \"available\",\n      \"notices\": [],\n      \"model_id\": \"cb3755ad-d226-4587-b956-43a4a7202202\",\n      \"features\": [\n        \"classifications\"\n      ],\n      \"created\": \"2020-04-10T19:32:42Z\",\n      \"last_trained\": \"2020-04-10T19:32:42Z\",\n      \"last_deployed\": \"2020-04-10T19:32:42Z\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Invalid request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										},
+										{
+											"name": "Access forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/models/classifications?version=veniam sint exercitat",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"models",
+														"classifications"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "veniam sint exercitat"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "List models",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/models?version=2022-04-07",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"models"
+									],
+									"query": [
+										{
+											"key": "version",
+											"value": "2022-04-07",
+											"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+										}
+									]
+								},
+								"description": "Lists Watson Knowledge Studio [custom entities and relations models](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-customizing) that are deployed to your Natural Language Understanding service."
+							},
+							"response": [
+								{
+									"name": "List models results",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/models?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"models\": [\n    {\n      \"workspace_id\": \"504503a0-62c1-12e9-8346-d190294d088d\",\n      \"version_description\": \"Initial version\",\n      \"model_version\": \"1.0.1\",\n      \"version\": \"1.0.1\",\n      \"status\": \"available\",\n      \"notices\": [],\n      \"name\": \"MyAdvancedRulesModel\",\n      \"model_id\": \"2987ca3f-205f-4786-a168-2d8026ddcc9b\",\n      \"language\": \"en\",\n      \"description\": \"My custom advanced rules model\",\n      \"created\": \"2019-04-24T14:50:22Z\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/models?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete model",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/models/:model_id?version=2022-04-07",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"models",
+										":model_id"
+									],
+									"query": [
+										{
+											"key": "version",
+											"value": "2022-04-07",
+											"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
+										}
+									],
+									"variable": [
+										{
+											"key": "model_id",
+											"value": "6981d361-d8e3-4049-b6a7-e579ec3a9176",
+											"description": "(Required) Model ID of the model to delete"
+										}
+									]
+								},
+								"description": "Deletes a custom model"
+							},
+							"response": [
+								{
+									"name": "Delete model results",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/:model_id?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												":model_id"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											],
+											"variable": [
+												{
+													"key": "model_id",
+													"value": "veniam sint exercitat",
+													"description": "(Required) Model ID of the model to delete"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"deleted\": \"2987ca3f-205f-4786-a168-2d8026ddcc9b\"\n}"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/models/:model_id?version=veniam sint exercitat",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"models",
+												":model_id"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "veniam sint exercitat"
+												}
+											],
+											"variable": [
+												{
+													"key": "model_id",
+													"value": "veniam sint exercitat",
+													"description": "(Required) Model ID of the model to delete"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 87159242,\n  \"error\": \"sit id dolor\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "qq5EAzsP2Xalt2RjCo1NPD-v9rlfuLP-GYrDHGEtT9wp",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "apikey",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com",
+			"type": "string"
+		},
+		{
+			"key": "version",
+			"value": "2022-04-07",
+			"type": "string"
+		}
+	]
+}

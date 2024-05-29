@@ -1,7 +1,6 @@
 package com.luanvv.http.client.vshc.controllers
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
+import com.luanvv.http.client.vshc.components.models.CollectionItem
 import com.luanvv.http.client.vshc.models.Parameter
 import com.luanvv.http.client.vshc.models.Request
 import com.luanvv.http.client.vshc.services.RequestMakerService
@@ -13,12 +12,16 @@ import javafx.scene.control.ChoiceBox
 import javafx.scene.control.TableView
 import javafx.scene.control.TextArea
 import javafx.scene.control.TextField
-import java.net.URI
-import java.net.URL
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
 
 class RequestTabController {
+
+    @FXML
+    private lateinit var txtPostResponse: TextArea
+
+    @FXML
+    private lateinit var txtPreRequest: TextArea
 
     @FXML
     private lateinit var txtResponseBody: TextArea
@@ -39,6 +42,12 @@ class RequestTabController {
     private lateinit var headersTable: TableView<Parameter>
 
     @FXML
+    private lateinit var variablesTable: TableView<Parameter>
+
+    @FXML
+    private lateinit var responseHeadersTable: TableView<Parameter>
+
+    @FXML
     fun initialize() {
         val options = FXCollections.observableArrayList("GET", "POST", "PUT", "DELETE")
         httpMethodBox.items = options
@@ -50,23 +59,47 @@ class RequestTabController {
 
         urlField.textProperty().addListener { _, _, newValue ->
             try {
-                val url = URI(newValue).toURL()
-                val query = url.query
-                if (query != null) {
-                    val params = query.split("&").map {
+                val query = newValue.substringAfter("?", "")
+                val params = query.split("&")
+                    .stream()
+                    .map {
                         val parts = it.split("=")
                         val key = URLDecoder.decode(parts[0], StandardCharsets.UTF_8)
                         val value = if (parts.size > 1) URLDecoder.decode(parts[1], StandardCharsets.UTF_8) else ""
                         Parameter(key = key, value = value)
                     }
-                    Platform.runLater {
-                        paramsTable.items.setAll(params)
+                    .toList()
+                Platform.runLater {
+                    paramsTable.items.also {
+                        it.clear()
+                        it.addAll(params)
+                        it.addAll(IntRange(params.size, 10).map { Parameter("", "") })
                     }
                 }
             } catch (e: Exception) {
                 // Invalid URL, do nothing
             }
         }
+
+//        paramsTable.items.addListener(ListChangeListener {
+//            if (it.next() && (it.wasAdded() || it.wasRemoved())) {
+//                val params = paramsTable.items.filter { it.key.isNotBlank() }
+//                val query = params.joinToString("&") { "${it.key}=${it.value}" }
+//                val oldUrl = URI(urlField.text).toURL()
+//                val newUrl = URI(
+//                    oldUrl.protocol,
+//                    null,
+//                    oldUrl.host,
+//                    oldUrl.port,
+//                    oldUrl.path,
+//                    query,
+//                    null,
+//                ).toURL()
+//                Platform.runLater {
+//                    urlField.text = newUrl.toString()
+//                }
+//            }
+//        })
     }
 
     fun onSendButtonClick(actionEvent: ActionEvent) {
@@ -91,6 +124,33 @@ class RequestTabController {
         Platform.runLater {
             val response = RequestMakerService.makeRequest(request)
             txtResponseBody.text = RequestMakerService.formatResponse(response)
+            responseHeadersTable.items.clear()
+            responseHeadersTable.items.addAll(
+                response.headers.map { Parameter(key = it.key, value = it.value) }
+            )
         }
+    }
+
+    fun updateRequestTab(collectionItem: CollectionItem) {
+        if (collectionItem.item == null) {
+            return
+        }
+        val item = collectionItem.item
+        urlField.text = item.request?.url?.raw
+        httpMethodBox.value = item.request?.method
+        variablesTable.items.also {
+            it.clear()
+            it.addAll(
+                collectionItem.root?.variable?.map { Parameter(key = it.key, value = it.value) } ?: emptyList()
+            )
+        }
+        headersTable.items.also {
+            it.clear()
+            it.addAll(
+                item.request?.header?.map { Parameter(key = it.key, value = it.value) } ?: emptyList()
+            )
+        }
+        txtPreRequest.text = item.event?.firstOrNull { it.listen == "prerequest" }?.script?.exec?.firstOrNull() ?: ""
+        txtPostResponse.text = item.event?.firstOrNull { it.listen == "test" }?.script?.exec?.firstOrNull() ?: ""
     }
 }
