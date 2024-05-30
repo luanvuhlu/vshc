@@ -6,8 +6,9 @@ module com.luanvv.http.client.vshc {
     requires org.kordamp.bootstrapfx.core;
     requires java.net.http;
     requires com.fasterxml.jackson.databind;
+  requires java.scripting;
 
-    opens com.luanvv.http.client.vshc to javafx.fxml;
+  opens com.luanvv.http.client.vshc to javafx.fxml;
     opens com.luanvv.http.client.vshc.controllers to javafx.fxml;
     opens com.luanvv.http.client.vshc.components to javafx.fxml;
     opens com.luanvv.http.client.vshc.models to javafx.base;

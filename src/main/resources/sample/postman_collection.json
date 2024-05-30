@@ -15,7 +15,35 @@
 					"item": [
 						{
 							"name": "Analyze text (GET)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response code is 200\", responseCode == 200)\r",
+											"tests['Status code is 200'] = responseCode === 200\r",
+											"var jsonData = JSON.parse(responseBody)\r",
+											"pm.environment.set('access_token', jsonData.access_token)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
+								"auth": {
+									"type": "basic"
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -3387,7 +3415,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/v1/models/categories?version=veniam sint exercitat",
+											"raw": "{{baseUrl}}/v1/models/categories?version=2022-04-07",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -3399,7 +3427,7 @@
 											"query": [
 												{
 													"key": "version",
-													"value": "veniam sint exercitat",
+													"value": "2022-04-07",
 													"description": "(Required) Release date of the API version you want to use. Specify dates in YYYY-MM-DD format. The current version is `2022-04-07`."
 												}
 											]
@@ -4951,6 +4979,21 @@
 						{
 							"name": "List models",
 							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "qq5EAzsP2Xalt2RjCo1NPD-v9rlfuLP-GYrDHGEtT9wp",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "apikey",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -5206,7 +5249,7 @@
 		"basic": [
 			{
 				"key": "password",
-				"value": "qq5EAzsP2Xalt2RjCo1NPD-v9rlfuLP-GYrDHGEtT9wp",
+				"value": "qq5EAzsP2Xalt2RjCo1NPD",
 				"type": "string"
 			},
 			{

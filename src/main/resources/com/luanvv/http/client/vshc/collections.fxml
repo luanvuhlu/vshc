@@ -5,8 +5,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.luanvv.http.client.vshc.controllers.CollectionController">
   <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-    <Button mnemonicParsing="false" text="Import" />
+    <Button fx:id="btnImport" mnemonicParsing="false" text="Import" />
     <TextField promptText="Filter" />
-      <ListView fx:id="collectionListView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+    <ListView fx:id="collectionListView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
   </VBox>
 </AnchorPane>

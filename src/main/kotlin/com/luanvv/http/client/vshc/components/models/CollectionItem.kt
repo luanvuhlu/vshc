@@ -5,7 +5,7 @@ import com.luanvv.http.client.vshc.models.postman.RequestCollection
 
 data class CollectionItem(
     val item: Item? = null,
-    val root: RequestCollection? = null,
+    val root: Any? = null,
     val requestCollection: RequestCollection? = null
 ) {
     override fun toString(): String {

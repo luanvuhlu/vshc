@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "460bd0f4-41f7-4f73-b0de-bfe3c668a217",
+		"name": "CoinMarket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20397120"
+	},
+	"item": [
+		{
+			"name": "GMT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseJson = pm.response.json()\r",
+							"let price = responseJson[0].current_price\r",
+							"console.log('Current GMT price: $' + price)\r",
+							"pm.test(\"GMT cao hơn $3\", function () {\r",
+							"    pm.expect(price).to.above(3);\r",
+							"});\r",
+							"pm.test(\"GMT thấp hơn $4\", function () {\r",
+							"    pm.expect(price).to.below(4);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=stepn",
+					"protocol": "https",
+					"host": [
+						"api",
+						"coingecko",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"coins",
+						"markets"
+					],
+					"query": [
+						{
+							"key": "vs_currency",
+							"value": "usd"
+						},
+						{
+							"key": "ids",
+							"value": "stepn"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

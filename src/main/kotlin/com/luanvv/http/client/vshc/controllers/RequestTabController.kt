@@ -107,7 +107,7 @@ class RequestTabController {
         val httpMethod = httpMethodBox.value
         // TODO
 //        val authorizationType = authorizationTypeBox.value
-        val params = headersTable.items.stream()
+        val params = paramsTable.items.stream()
             .filter { it.key.isNotBlank() }
             .map { Parameter(key = it.key, value = it.value) }
             .toList()
@@ -122,7 +122,7 @@ class RequestTabController {
             parameters = params
         )
         Platform.runLater {
-            val response = RequestMakerService.makeRequest(request)
+            val response = RequestMakerService.makeRequest(request, variablesTable.items)
             txtResponseBody.text = RequestMakerService.formatResponse(response)
             responseHeadersTable.items.clear()
             responseHeadersTable.items.addAll(
@@ -131,6 +131,14 @@ class RequestTabController {
         }
     }
 
+    private fun addVariables(collectionItem: CollectionItem) {
+        collectionItem.requestCollection?.variable?.map { Parameter(key = it.key, value = it.value) }?.let {
+            variablesTable.items.addAll(it)
+        }
+        if (collectionItem.root is CollectionItem) {
+            addVariables(collectionItem.root)
+        }
+    }
     fun updateRequestTab(collectionItem: CollectionItem) {
         if (collectionItem.item == null) {
             return
@@ -140,17 +148,15 @@ class RequestTabController {
         httpMethodBox.value = item.request?.method
         variablesTable.items.also {
             it.clear()
-            it.addAll(
-                collectionItem.root?.variable?.map { Parameter(key = it.key, value = it.value) } ?: emptyList()
-            )
         }
+        addVariables(collectionItem)
         headersTable.items.also {
             it.clear()
             it.addAll(
                 item.request?.header?.map { Parameter(key = it.key, value = it.value) } ?: emptyList()
             )
         }
-        txtPreRequest.text = item.event?.firstOrNull { it.listen == "prerequest" }?.script?.exec?.firstOrNull() ?: ""
-        txtPostResponse.text = item.event?.firstOrNull { it.listen == "test" }?.script?.exec?.firstOrNull() ?: ""
+        txtPreRequest.text = item.event?.firstOrNull { it.listen == "prerequest" }?.script?.exec?.joinToString("\n") ?: ""
+        txtPostResponse.text = item.event?.firstOrNull { it.listen == "test" }?.script?.exec?.joinToString("\n") ?: ""
     }
 }
