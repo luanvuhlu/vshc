@@ -2,6 +2,7 @@ package com.luanvv.http.client.vshc.controllers
 
 import com.luanvv.http.client.vshc.components.models.CollectionItem
 import com.luanvv.http.client.vshc.events.ChooseRequestEvent
+import com.luanvv.http.client.vshc.services.RequestMakerService
 import javafx.application.Platform
 import javafx.event.EventHandler
 import javafx.fxml.FXML
@@ -32,6 +33,10 @@ class MainViewController {
                 val data = (event as ChooseRequestEvent).data
                 updateRequestTab(data)
             }
+            rootNode.addEventFilter(ChooseRequestEvent.CHOOSE_REQUEST_FOLDER_TYPE) { event ->
+                val data = (event as ChooseRequestEvent).data
+                updateRequestTab(data, true)
+            }
         }
     }
 
@@ -57,8 +62,13 @@ class MainViewController {
         return tab
     }
 
-    fun updateRequestTab(collectionItem: CollectionItem) {
-        if (collectionItem.requestCollection != null || collectionItem.item?.item?.isNotEmpty() == true) {
+    private fun updateRequestTab(collectionItem: CollectionItem, folder: Boolean = false) {
+        if (folder) {
+            RequestMakerService.runFolder(collectionItem)
+            return
+        }
+        val isFolder = collectionItem.requestCollection != null || collectionItem.item?.item?.isNotEmpty() == true
+        if (isFolder) {
             return
         }
         val tab = createNewTab(collectionItem.item?.name)

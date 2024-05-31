@@ -5,7 +5,8 @@ import com.luanvv.http.client.vshc.models.postman.RequestCollection
 
 data class CollectionItem(
     val item: Item? = null,
-    val root: Any? = null,
+    val root: CollectionItem? = null,
+    val children: MutableList<CollectionItem> = mutableListOf(),
     val requestCollection: RequestCollection? = null
 ) {
     override fun toString(): String {

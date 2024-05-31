@@ -10,7 +10,7 @@ data class Response (
 	var status : String = "",
 	var code : Int = 0,
 	var _postman_previewlanguage : String = "",
-	var header : List<Header> = listOf(),
+	var header : List<Header>? = listOf(),
 	var cookie : List<String> = listOf(),
 	var body : String = "",
 )

@@ -7,11 +7,9 @@ import com.luanvv.http.client.vshc.models.postman.RequestCollection
 import com.luanvv.http.client.vshc.services.postman.CollectionConverter
 import javafx.event.Event.fireEvent
 import javafx.fxml.FXML
-import javafx.scene.control.Button
-import javafx.scene.control.ListView
-import javafx.scene.control.TreeItem
-import javafx.scene.control.TreeView
+import javafx.scene.control.*
 import javafx.stage.FileChooser
+import javafx.util.Callback
 import java.io.File
 
 class CollectionController {
@@ -24,7 +22,7 @@ class CollectionController {
 
     @FXML
     fun initialize() {
-        addNewCollection(sampleCollection())
+//        addNewCollection(sampleCollection())
         addNewCollection(anotherSampleCollection())
         btnImport.setOnAction {
             val file = openFilePicker()
@@ -65,6 +63,25 @@ class CollectionController {
             createTreeItems(collection, item, rootItem)
         }
         val treeView = TreeView(rootItem)
+        treeView.cellFactory = Callback {
+            object : TreeCell<CollectionItem>() {
+                init {
+                    val contextMenu = ContextMenu()
+                    val menuItem1 = MenuItem("Run all without stored cookies")
+                    menuItem1.setOnAction {
+                        val selectedItem = this.treeItem.value
+                        fireEvent(treeView, ChooseRequestEvent(ChooseRequestEvent.CHOOSE_REQUEST_FOLDER_TYPE, selectedItem))
+                    }
+                    contextMenu.items.addAll(menuItem1)
+                    setContextMenu(contextMenu)
+                }
+
+                override fun updateItem(item: CollectionItem?, empty: Boolean) {
+                    super.updateItem(item, empty)
+                    text = item?.toString()
+                }
+            }
+        }
         collectionListView.items.add(treeView)
         treeView.selectionModel.selectedItemProperty().addListener { _, _, newValue ->
             val item = newValue.value
@@ -75,7 +92,9 @@ class CollectionController {
     }
 
     private fun createTreeItems(root: RequestCollection, item: Item, treeItem: TreeItem<CollectionItem>): TreeItem<CollectionItem> {
-        return TreeItem(CollectionItem(item = item, root = treeItem.value)).also {
+        val collectionItem = CollectionItem(item = item, root = treeItem.value)
+        treeItem.value.children.add(collectionItem)
+        return TreeItem(collectionItem).also {
             it.isExpanded = true
             treeItem.children.add(it)
             if (item.item.isNotEmpty()) {

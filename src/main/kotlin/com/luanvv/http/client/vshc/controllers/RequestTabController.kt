@@ -12,8 +12,6 @@ import javafx.scene.control.ChoiceBox
 import javafx.scene.control.TableView
 import javafx.scene.control.TextArea
 import javafx.scene.control.TextField
-import java.net.URLDecoder
-import java.nio.charset.StandardCharsets
 
 class RequestTabController {
 
@@ -59,16 +57,7 @@ class RequestTabController {
 
         urlField.textProperty().addListener { _, _, newValue ->
             try {
-                val query = newValue.substringAfter("?", "")
-                val params = query.split("&")
-                    .stream()
-                    .map {
-                        val parts = it.split("=")
-                        val key = URLDecoder.decode(parts[0], StandardCharsets.UTF_8)
-                        val value = if (parts.size > 1) URLDecoder.decode(parts[1], StandardCharsets.UTF_8) else ""
-                        Parameter(key = key, value = value)
-                    }
-                    .toList()
+                val params = RequestMakerService.extractParamsFromUrl(newValue)
                 Platform.runLater {
                     paramsTable.items.also {
                         it.clear()
@@ -105,7 +94,6 @@ class RequestTabController {
     fun onSendButtonClick(actionEvent: ActionEvent) {
         val url = urlField.text
         val httpMethod = httpMethodBox.value
-        // TODO
 //        val authorizationType = authorizationTypeBox.value
         val params = paramsTable.items.stream()
             .filter { it.key.isNotBlank() }
@@ -119,7 +107,9 @@ class RequestTabController {
             method = httpMethod,
             url = url,
             headers = headers,
-            parameters = params
+            parameters = params,
+            preRequestScript = txtPreRequest.text,
+            postResponseScript = txtPostResponse.text,
         )
         Platform.runLater {
             val response = RequestMakerService.makeRequest(request, variablesTable.items)
@@ -139,24 +129,24 @@ class RequestTabController {
             addVariables(collectionItem.root)
         }
     }
+
     fun updateRequestTab(collectionItem: CollectionItem) {
-        if (collectionItem.item == null) {
-            return
+        if (collectionItem.item != null) {
+            val item = collectionItem.item
+            urlField.text = item.request?.url?.raw
+            httpMethodBox.value = item.request?.method
+            variablesTable.items.also {
+                it.clear()
+            }
+            addVariables(collectionItem)
+            headersTable.items.also {
+                it.clear()
+                it.addAll(
+                    item.request?.header?.map { Parameter(key = it.key, value = it.value) } ?: emptyList()
+                )
+            }
+            txtPreRequest.text = item.event?.firstOrNull { it.listen == "prerequest" }?.script?.exec?.joinToString("\n") ?: ""
+            txtPostResponse.text = item.event?.firstOrNull { it.listen == "test" }?.script?.exec?.joinToString("\n") ?: ""
         }
-        val item = collectionItem.item
-        urlField.text = item.request?.url?.raw
-        httpMethodBox.value = item.request?.method
-        variablesTable.items.also {
-            it.clear()
-        }
-        addVariables(collectionItem)
-        headersTable.items.also {
-            it.clear()
-            it.addAll(
-                item.request?.header?.map { Parameter(key = it.key, value = it.value) } ?: emptyList()
-            )
-        }
-        txtPreRequest.text = item.event?.firstOrNull { it.listen == "prerequest" }?.script?.exec?.joinToString("\n") ?: ""
-        txtPostResponse.text = item.event?.firstOrNull { it.listen == "test" }?.script?.exec?.joinToString("\n") ?: ""
     }
 }
